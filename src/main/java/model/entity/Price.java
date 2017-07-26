@@ -3,6 +3,6 @@ package model.entity;
 /**
  * @author Oleksii Petrokhalko.
  */
-public enum Freshness {
-    VERY, FRESH, BAD, SLUGGISH
+public enum Price {
+    CHEAP, BUDGETARY, EXPENSIVE, VIP
 }

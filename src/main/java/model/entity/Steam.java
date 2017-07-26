@@ -3,7 +3,7 @@ package model.entity;
 /**
  * @author Oleksii Petrokhalko.
  */
-public enum UserRole {
-    CUSTOMER, ADMIN;
+public enum  Steam {
+    WITHOUT, SHORT, MIDDLE, LONG
 
 }

@@ -5,6 +5,6 @@ package model.entity;
  */
 public class Accessories {
     private Long id;
-    private String name;
+    private AccessoriesType accessoriesType;
 
 }

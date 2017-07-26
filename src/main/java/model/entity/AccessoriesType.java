@@ -3,5 +3,6 @@ package model.entity;
 /**
  * @author Oleksii Petrokhalko.
  */
-public class Flower {
+public enum  AccessoriesType {
+    BASKET, BASE, RIBBON, WRAPPER
 }
