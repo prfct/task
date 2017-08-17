@@ -41,7 +41,8 @@ public class SelectBouquetsTreeByBouquet extends SelectQuery<List<BouquetTree>> 
             Tree tree = new Tree();
             tree.setId(resultSet.getLong("tree_id"));
             tree.setName(resultSet.getString("name"));
-            tree.setSize(Size.valueOf(resultSet.getString("size").toLowerCase()));
+            tree.setSize(Size.valueOf(resultSet.getString("size")));
+            bouquetTree.setTree(tree);
             bouquetTree.setBouquet(bouquet);
             bouquetTrees.add(bouquetTree);
         }

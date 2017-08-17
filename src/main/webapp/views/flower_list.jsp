@@ -14,7 +14,7 @@
                         <th>Name</th>
                         <th>colour</th>
                         <th>freshness</th>
-                        <th>steam</th>
+                        <th>size</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,7 +24,7 @@
                             <td>${flower.name}</td>
                             <td>${flower.colour}</td>
                             <td>${flower.freshness}</td>
-                            <td>${flower.steam}</td>
+                            <td>${flower.size}</td>
                         </tr>
                     </c:forEach>
                     </tbody>

@@ -24,7 +24,7 @@ public class InsertFlower extends InsertQuery<Flower> {
         preparedStatement.setString(1, flower.getName());
         preparedStatement.setString(2, flower.getColour().toString());
         preparedStatement.setString(3, flower.getFreshness().toString());
-        preparedStatement.setString(4, flower.getSteam().toString());
+        preparedStatement.setInt(4, flower.getSize());
 
     }
 

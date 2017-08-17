@@ -44,4 +44,9 @@ public class DaoFactoryImpl extends DaoFactory {
     public BouquetTreeDao getBouquetTreeDao() {
         return new BouquetTreeDaoImpl();
     }
+
+    @Override
+    public BouquetAccessoryDao getBouquetAccessoryDao() {
+        return new BouquetAccessoryDaoImpl();
+    }
 }

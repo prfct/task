@@ -31,8 +31,8 @@
                         <br>
                         <c:forEach items="${flowers}" var="flower">
                             <c:out value="${flower.id} - ${flower.name},colour:${flower.colour},
-                                freshness:${flower.freshness}, steam size: ${flower.steam}"/>
-                            <input type="number" min="0" name="flowersQuantity.${flower.id}">
+                                freshness:${flower.freshness}, size: ${flower.size}"/>
+                            <input type="number" min="0" name="flowersQuantity[${flower.id}]">
                             <br>
                         </c:forEach>
                         <c:if test="${not empty flowerIds_error}">
@@ -48,23 +48,9 @@
                         <br>
                         <c:forEach items="${trees}" var="tree">
                             <c:out value="${tree.id} - ${tree.name},size:${tree.size}"/>
-                            <input type="number" min="0" name="treesQuantity.${tree.id}">
+                            <input type="number" min="0" name="treesQuantity[${tree.id}]">
                             <br>
                         </c:forEach>
-                        <%--<c:if test="${not empty treeIds_error}">--%>
-                            <%--<div class="alert alert-danger" role="alert">--%>
-                                <%--<span class="glyphicon glyphicon-exclamation-sign"></span>--%>
-                                <%--<span class="sr-only">Error:</span>--%>
-                                    <%--${treeIds_error}--%>
-                            <%--</div>--%>
-                        <%--</c:if>--%>
-                        <%--<c:if test="${not empty trees_error}">--%>
-                            <%--<div class="alert alert-danger" userRole="alert">--%>
-                                <%--<span class="glyphicon glyphicon-exclamation-sign"></span>--%>
-                                <%--<span class="sr-only">Error:</span>--%>
-                                    <%--${trees_error}--%>
-                            <%--</div>--%>
-                        <%--</c:if>--%>
                     </div>
                     <div class="form-group">
                         <label for="accessoryIds">Choose accessory:</label>

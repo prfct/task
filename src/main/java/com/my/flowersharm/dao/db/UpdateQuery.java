@@ -21,7 +21,7 @@ public abstract class UpdateQuery<T> implements DataCommand<T> {
             preparedStatement.executeUpdate();
             return returnUpdatedObject();
         } catch (SQLException e) {
-            LOGGER.warn("Update query. execute ps problem", e.getMessage());
+            LOGGER.warn("Update query. execute ps problem '{}'", e.getMessage());
             throw new RuntimeException(e);
         }
     }

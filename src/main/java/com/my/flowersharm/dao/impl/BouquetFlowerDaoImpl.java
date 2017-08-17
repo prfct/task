@@ -8,7 +8,7 @@ import com.my.flowersharm.model.domain.BouquetFlower;
 
 import java.util.List;
 
-public class BouquetFlowerDaoImpl extends AbstractDao implements BouquetFlowerDao  {
+public class BouquetFlowerDaoImpl extends AbstractDao implements BouquetFlowerDao {
     @Override
     public List<BouquetFlower> findBouquetFlowersByBouquet(Bouquet bouquet) {
         return executeDataCommand(new SelectBouquetFlowersByBouquet(bouquet));

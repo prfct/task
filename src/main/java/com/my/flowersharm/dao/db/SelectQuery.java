@@ -25,13 +25,13 @@ public abstract class SelectQuery<T> implements DataCommand<T> {
             ResultSet resultSet = preparedStatement.executeQuery();
             return parseResultSet(resultSet);
         } catch (SQLException e) {
-            LOGGER.warn("Select query. execute ps problem", e.getMessage());
+            LOGGER.warn("Select query. execute ps problem '{}'", e.getMessage());
             throw new DaoException(e.getMessage());
-        }finally {
+        } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
-                LOGGER.warn("Select query.cant close conn", e.getMessage());
+                LOGGER.warn("Select query.cant close conn '{}'", e.getMessage());
             }
         }
     }

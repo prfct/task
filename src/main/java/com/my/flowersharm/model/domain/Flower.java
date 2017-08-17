@@ -6,16 +6,16 @@ package com.my.flowersharm.model.domain;
 public class Flower extends BasePlant {
     private Colour colour;
     private Freshness freshness;
-    private Steam steam;
+    private Integer size;
 
     public Flower() {
     }
 
-    public Flower(String name, Colour colour, Freshness freshness, Steam steam) {
+    public Flower(String name, Colour colour, Freshness freshness, Integer size) {
         super(name);
         this.colour = colour;
         this.freshness = freshness;
-        this.steam = steam;
+        this.size = size;
     }
 
     public Colour getColour() {
@@ -34,11 +34,11 @@ public class Flower extends BasePlant {
         this.freshness = freshness;
     }
 
-    public Steam getSteam() {
-        return steam;
+    public Integer getSize() {
+        return size;
     }
 
-    public void setSteam(Steam steam) {
-        this.steam = steam;
+    public void setSize(Integer size) {
+        this.size = size;
     }
 }

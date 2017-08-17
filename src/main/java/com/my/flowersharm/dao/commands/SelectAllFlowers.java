@@ -32,9 +32,9 @@ public class SelectAllFlowers extends SelectQuery<List<Flower>> {
             Flower flower = new Flower();
             flower.setId(resultSet.getLong("flower_id"));
             flower.setName(resultSet.getString("name"));
+            flower.setSize(resultSet.getInt("steam"));
             flower.setColour(Colour.valueOf(resultSet.getString("colour")));
             flower.setFreshness(Freshness.valueOf(resultSet.getString("freshness")));
-            flower.setSteam(Steam.valueOf(resultSet.getString("steam")));
             flowers.add(flower);
         }
         return flowers;

@@ -8,4 +8,6 @@ public interface BouquetDao {
     List<Bouquet> readAll();
 
     Bouquet create(Bouquet bouquet);
+
+    Bouquet findOne(Long bouquetId);
 }

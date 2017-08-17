@@ -3,28 +3,33 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 <t:generic_page>
-    <jsp:attribute name="title">Flower list</jsp:attribute>
+    <jsp:attribute name="title">Bouquet list</jsp:attribute>
     <jsp:body>
         <c:choose>
-            <c:when test="${empty flowers_error and empty trees_error }">
+            <c:when test="${empty bouquets_error}">
                 <table class="table">
                     <thead>
                     <tr>
                         <th>id</th>
                         <th>title</th>
-                        <th>flowers</th>
-                        <th>tress</th>
+                        <th>price</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${flowers}" var="flower">
+                    <c:forEach items="${bouquets}" var="bouquet">
                         <tr>
-                            <td>${flower.id}</td>
-                            <td>${flower.name}</td>
-                            <td>${flower.colour}</td>
-                            <td>${flower.freshness}</td>
-                            <td>${flower.steam}</td>
+                            <td>${bouquet.id}</td>
+                            <td>${bouquet.title}</td>
+                            <td>${bouquet.price}</td>
+                            <td>
+                                <form method="post" style="display: inline-block;"
+                                      action="/app/bouquet/detail?id=${bouquet.id}">
+                                    <button class="btn btn-default btn-sm">Detail</button>
+                                </form>
+                            </td>
+
                         </tr>
+
                     </c:forEach>
                     </tbody>
                 </table>
@@ -33,9 +38,12 @@
                 <div class="alert alert-danger" role="alert">
                     <span class="glyphicon glyphicon-exclamation-sign"></span>
                     <span class="sr-only">Error:</span>
-                        ${flowers_error}
+                        ${bouquets_error}
                 </div>
             </c:otherwise>
         </c:choose>
     </jsp:body>
 </t:generic_page>
+
+
+<%--<a href="/app/bouquet/detail?id=${bouquet.id}"></a>--%>

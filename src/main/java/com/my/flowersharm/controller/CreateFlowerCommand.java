@@ -1,5 +1,6 @@
 package com.my.flowersharm.controller;
 
+import com.my.flowersharm.controller.parsers.IntegerParser;
 import com.my.flowersharm.controller.parsers.NameParser;
 import com.my.flowersharm.model.domain.*;
 import com.my.flowersharm.service.FlowerService;
@@ -18,11 +19,11 @@ public class CreateFlowerCommand implements Command {
     public String execute(Model model) {
         Map<String, Object> errors = new HashMap<>();
         String name = model.findParameter("name", new NameParser(errors));
+        Integer size = model.findParameter("size", new IntegerParser(errors));
         Freshness freshness = Freshness.valueOf(model.findParameter("freshType"));
-        Steam steam = Steam.valueOf(model.findParameter("steamSize"));
         Colour colour = Colour.valueOf(model.findParameter("colour"));
         if (errors.isEmpty()) {
-            flowerService.createFlower(new Flower(name, colour, freshness, steam));
+            flowerService.createFlower(new Flower(name, colour, freshness, size));
             return "redirect:/app/flower/list";
         }
         model.setAttributes(errors);

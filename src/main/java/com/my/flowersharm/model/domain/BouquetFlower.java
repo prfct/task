@@ -37,4 +37,5 @@ public class BouquetFlower {
     public void setQuantity(Long quantity) {
         this.quantity = quantity;
     }
+
 }

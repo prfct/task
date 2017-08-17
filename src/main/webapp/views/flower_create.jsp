@@ -31,12 +31,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="steams">Choose steam size:</label>
-                        <select class="form-control" id="steams" name="steamSize">
-                            <c:forEach items="${steams}" var="steam">
-                                <option value="${steam.size}">${steam.size}</option>
-                            </c:forEach>
-                        </select>
+                        <label for="size">Flower size</label>
+                        <input class="form-control" id="size" name="size" type="number" min="0"/>
+                        <c:if test="${not empty size_error}">
+                            <div class="alert alert-danger" role="alert">
+                                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                                <span class="sr-only">Error:</span>
+                                    ${size_error}
+                            </div>
+                        </c:if>
                     </div>
                     <div class="form-group">
                         <label for="colours">Choose colour:</label>

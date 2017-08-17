@@ -7,13 +7,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class SelectBouquetFlowersByBouquet extends SelectQuery<List<BouquetFlower>> {
     private static final String QUERY = "SELECT * FROM bouquet_flower bf " +
             "JOIN flower f ON bf.flower_id = f.flower_id " +
-            "WHERE bouquet_id = 1";
+            "WHERE bouquet_id = ?";
     private Bouquet bouquet;
 
     public SelectBouquetFlowersByBouquet(Bouquet bouquet) {
@@ -43,8 +42,9 @@ public class SelectBouquetFlowersByBouquet extends SelectQuery<List<BouquetFlowe
             flower.setName(resultSet.getString("name"));
             flower.setColour(Colour.valueOf(resultSet.getString("colour")));
             flower.setFreshness(Freshness.valueOf(resultSet.getString("freshness")));
-            flower.setSteam(Steam.valueOf(resultSet.getString("stream")));
+            flower.setSize(resultSet.getInt("steam"));
             bouquetFlower.setFlower(flower);
+            bouquetFlower.setBouquet(bouquet);
             bouquetFlowers.add(bouquetFlower);
         }
         return bouquetFlowers;

@@ -30,16 +30,16 @@ public class FlowerServiceImpl implements FlowerService {
         if (flowers.isEmpty()) {
             LOGGER.warn("Service.There are no flowers");
         }
-        LOGGER.info("Service. Flowers size '{}'", flowers.size());
+        LOGGER.info("Service. Quantity Flowers in list '{}'", flowers.size());
         return flowers;
     }
 
     @Override
     public Flower createFlower(Flower flower) {
         Flower createdFlower = daoFactory.getFlowerDao().createFlower(flower);
-        LOGGER.info("Service.Flower with id '{}', name '{}', colour '{}', freshness '{}', steam '{}' successful created",
+        LOGGER.info("Service.Flower with id '{}', name '{}', colour '{}', freshness '{}', size '{}' successful created",
                 createdFlower.getId(), createdFlower.getName(), createdFlower.getColour(),
-                createdFlower.getFreshness(), createdFlower.getSteam());
+                createdFlower.getFreshness(), createdFlower.getSize());
         return createdFlower;
     }
 

@@ -28,4 +28,19 @@ public class BouquetAccessories {
     public void setAccessories(Accessories accessories) {
         this.accessories = accessories;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BouquetAccessories that = (BouquetAccessories) o;
+
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return id.hashCode();
+    }
 }

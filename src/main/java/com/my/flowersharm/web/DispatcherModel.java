@@ -1,6 +1,7 @@
 package com.my.flowersharm.web;
 
 import com.my.flowersharm.controller.parsers.Parser;
+import com.my.flowersharm.controller.parsers.ParserMap;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -34,6 +35,11 @@ public class DispatcherModel implements Model {
     @Override
     public <T> T findParameter(String key, Parser<T> parser) {
         return parser.parse(key, parameters.get(key));
+    }
+
+    @Override
+    public <K, V> Map<K, V> findParameterMap(ParserMap<K, V> parser) {
+        return parser.parse(parameters);
     }
 
     public Map<String, Object> getAttributes() {

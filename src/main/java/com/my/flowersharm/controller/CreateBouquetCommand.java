@@ -2,13 +2,18 @@ package com.my.flowersharm.controller;
 
 import com.my.flowersharm.controller.parsers.LongParser;
 import com.my.flowersharm.controller.parsers.NameParser;
-import com.my.flowersharm.controller.parsers.Parser;
+import com.my.flowersharm.controller.parsers.ParserMap;
 import com.my.flowersharm.model.domain.*;
 import com.my.flowersharm.service.BouquetService;
 import com.my.flowersharm.service.impl.BouquetServiceImpl;
 import com.my.flowersharm.web.Model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class CreateBouquetCommand implements Command {
     private BouquetService bouquetService = BouquetServiceImpl.getInstance();
@@ -19,7 +24,8 @@ public class CreateBouquetCommand implements Command {
         Bouquet bouquet = new Bouquet();
         String title = model.findParameter("title", new NameParser(errors));
         Long price = model.findParameter("price", new LongParser(errors));
-        bouquet.setFlowerList(model.findParameter("flowersQuantity", new BouquetFlowerParser()));
+        model.findParameterMap(new BouquetFlowerParser());
+
         List<BouquetFlower> bouquetFlowerList = new ArrayList<>();
 
         if (errors.isEmpty()) {
@@ -33,14 +39,23 @@ public class CreateBouquetCommand implements Command {
         return "/views/flower_create.jsp";
     }
 
-    private class BouquetFlowerParser extends Parser<List<BouquetFlower>> {
-        List<BouquetFlower> bouquetFlowerList = new ArrayList<>();
-        Map<String, Object> map = new HashMap<>();
+    private class BouquetFlowerParser extends ParserMap<Long, BouquetFlower> {
+        private Pattern pattern = Pattern.compile("(\\w)\\w+");
+        List<Long> ids = new ArrayList<>();
+        Map<Long, BouquetFlower> map = new HashMap<>();
 
         @Override
-        public List<BouquetFlower> parse(String key, String[] params) {
-            return null;
+        public Map<Long, BouquetFlower> parse(Map<String, String[]> parameters) {
+            for (Map.Entry<String, String[]> stringEntry : parameters.entrySet()) {
+                String[] params = stringEntry.getValue();
+                Integer value = null;
+                Matcher matcher = pattern.matcher(stringEntry.getKey());
+                if (matcher.matches()) {
+                    Long key = Long.parseLong(matcher.group(1));
+                    ids.add(key);
+                }
+            }
+            return map;
         }
-
     }
 }

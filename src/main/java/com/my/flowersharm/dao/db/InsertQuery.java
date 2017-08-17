@@ -33,13 +33,13 @@ public abstract class InsertQuery<T> implements DataCommand<T> {
                 }
             }
         } catch (SQLException e) {
-            LOGGER.warn("Insert query. Execute ps problem", e.getMessage());
+            LOGGER.warn("Insert query. Execute ps problem '{}'", e.getMessage());
             throw new RuntimeException(e);
         } finally {
             try {
                 connection.close();
             } catch (SQLException e) {
-                LOGGER.warn("Insert query. cant close conn", e.getMessage());
+                LOGGER.warn("Insert query. cant close conn '{}'", e.getMessage());
 
             }
         }

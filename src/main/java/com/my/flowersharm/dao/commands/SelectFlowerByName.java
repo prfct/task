@@ -38,7 +38,7 @@ public class SelectFlowerByName extends SelectQuery<Flower> {
             flower.setName(resultSet.getString("name"));
             flower.setColour(Colour.valueOf(resultSet.getString("colour")));
             flower.setFreshness(Freshness.valueOf(resultSet.getString("freshness")));
-            flower.setSteam(Steam.valueOf(resultSet.getString("steam")));
+            flower.setSize(resultSet.getInt("steam"));
         }
         return flower;
     }

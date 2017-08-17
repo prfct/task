@@ -2,14 +2,15 @@ package com.my.flowersharm.model.domain;
 
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Oleksii Petrokhalko.
  * 1. Цветочница. Определить иерархию цветов. Создать несколько объектов-
-цветов. Собрать букет (используя аксессуары) с определением его
-стоимости. Провести сортировку цветов в букете на основе уровня
-свежести. Найти цветок в букете, соответствующий заданному диапазону
-длин стеблей.
+ * цветов. Собрать букет (используя аксессуары) с определением его
+ * стоимости. Провести сортировку цветов в букете на основе уровня
+ * свежести. Найти цветок в букете, соответствующий заданному диапазону
+ * длин стеблей.
  */
 public class Bouquet {
     private Long id;
@@ -17,7 +18,7 @@ public class Bouquet {
     private Long price;
     private List<BouquetFlower> flowerList;
     private List<BouquetTree> treeList;
-    private List<BouquetAccessories> accessoriesList;
+    private Set<BouquetAccessories> accessoriesList;
 
     public Long getId() {
         return id;
@@ -59,11 +60,11 @@ public class Bouquet {
         this.treeList = treeList;
     }
 
-    public List<BouquetAccessories> getAccessoriesList() {
+    public Set<BouquetAccessories> getAccessoriesList() {
         return accessoriesList;
     }
 
-    public void setAccessoriesList(List<BouquetAccessories> accessoriesList) {
+    public void setAccessoriesList(Set<BouquetAccessories> accessoriesList) {
         this.accessoriesList = accessoriesList;
     }
 }

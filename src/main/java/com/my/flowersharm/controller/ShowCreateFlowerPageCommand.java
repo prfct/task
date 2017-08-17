@@ -11,7 +11,6 @@ public class ShowCreateFlowerPageCommand implements Command {
     @Override
     public String execute(Model model) {
         model.setAttribute("freshness", Freshness.values());
-        model.setAttribute("steams", Steam.values());
         model.setAttribute("colours", Colour.values());
         return "/views/flower_create.jsp";
     }
