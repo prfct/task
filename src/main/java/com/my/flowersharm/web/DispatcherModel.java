@@ -38,7 +38,7 @@ public class DispatcherModel implements Model {
     }
 
     @Override
-    public <K, V> Map<K, V> findParameterMap(ParserMap<K, V> parser) {
+    public <T> List<T> findParameterMap(ParserMap<T> parser) {
         return parser.parse(parameters);
     }
 

@@ -31,7 +31,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="size">Flower size</label>
+                        <label for="size">Flower steam size</label>
                         <input class="form-control" id="size" name="size" type="number" min="0"/>
                         <c:if test="${not empty size_error}">
                             <div class="alert alert-danger" role="alert">

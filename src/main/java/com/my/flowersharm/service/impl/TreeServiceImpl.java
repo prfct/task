@@ -3,7 +3,6 @@ package com.my.flowersharm.service.impl;
 import com.my.flowersharm.dao.DaoFactory;
 import com.my.flowersharm.model.domain.Tree;
 import com.my.flowersharm.service.TreeService;
-import com.my.flowersharm.service.exception.TreeListException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,5 +39,10 @@ public class TreeServiceImpl implements TreeService {
         LOGGER.info("Service.Tree with id '{}', name '{}', size '{}'successful created",
                 createdTree.getId(), createdTree.getName(), createdTree.getSize());
         return createdTree;
+    }
+
+    @Override
+    public Tree findTreeById(Long treeId) {
+        return daoFactory.getTreeDao().findTreeById(treeId);
     }
 }

@@ -7,4 +7,7 @@ import java.util.List;
 
 public interface BouquetFlowerDao {
     List<BouquetFlower> findBouquetFlowersByBouquet(Bouquet bouquet);
+
+    BouquetFlower createBouquetFlower(Bouquet savedBouquet, BouquetFlower bouquetFlower);
+
 }

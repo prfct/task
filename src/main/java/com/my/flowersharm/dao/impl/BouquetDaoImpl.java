@@ -2,6 +2,7 @@ package com.my.flowersharm.dao.impl;
 
 import com.my.flowersharm.dao.AbstractDao;
 import com.my.flowersharm.dao.BouquetDao;
+import com.my.flowersharm.dao.commands.InsertBouquet;
 import com.my.flowersharm.dao.commands.SelectAllBouquets;
 import com.my.flowersharm.dao.commands.SelectBouquetById;
 import com.my.flowersharm.model.domain.Bouquet;
@@ -17,7 +18,7 @@ public class BouquetDaoImpl extends AbstractDao implements BouquetDao {
 
     @Override
     public Bouquet create(Bouquet bouquet) {
-        return null;
+        return executeDataCommand(new InsertBouquet(bouquet));
     }
 
     @Override

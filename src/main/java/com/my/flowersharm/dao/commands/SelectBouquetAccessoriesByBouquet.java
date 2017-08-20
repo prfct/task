@@ -9,10 +9,12 @@ import com.my.flowersharm.model.domain.BouquetAccessories;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
-public class SelectBouquetAccessoriesByBouquet extends SelectQuery<Set<BouquetAccessories>> {
+public class SelectBouquetAccessoriesByBouquet extends SelectQuery<List<BouquetAccessories>> {
     private static final String QUERY = "SELECT * FROM bouquet_accessories ba " +
             "JOIN accessories a ON ba.accessories_id = a.accessories_id " +
             "WHERE bouquet_id = ?";
@@ -34,8 +36,8 @@ public class SelectBouquetAccessoriesByBouquet extends SelectQuery<Set<BouquetAc
     }
 
     @Override
-    protected Set<BouquetAccessories> parseResultSet(ResultSet resultSet) throws SQLException {
-        Set<BouquetAccessories> bouquetAccessories = new HashSet<>();
+    protected List<BouquetAccessories> parseResultSet(ResultSet resultSet) throws SQLException {
+        List<BouquetAccessories> bouquetAccessories = new ArrayList<>();
         while (resultSet.next()) {
             BouquetAccessories bouquetAccessory = new BouquetAccessories();
             bouquetAccessory.setId(resultSet.getLong("bouquet_accessories_id"));

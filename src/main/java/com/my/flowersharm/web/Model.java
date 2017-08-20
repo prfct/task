@@ -16,5 +16,5 @@ public interface Model {
 
     <T> T findParameter(String key, Parser<T> parser);
 
-    <K, V> Map<K, V> findParameterMap(ParserMap<K, V> parser);
+    <T> List<T> findParameterMap(ParserMap<T> parser);
 }

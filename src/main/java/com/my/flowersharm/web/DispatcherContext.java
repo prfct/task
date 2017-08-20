@@ -40,16 +40,6 @@ public class DispatcherContext {
                 .register("/accessories/create", new ShowCreateAccessoriesPageCommand())
                 .register("/accessories/create", HttpMethod.POST, new CreateAccessoriesCommand())
                 .register("/accessories/list", new AccessoriesListCommand())
-//                .register("/race/create", HttpMethod.POST, new CreateRaceCommand())
-//                .register("/race/create", new ShowCreateRacePageCommand())
-//                .register("/login", new ShowLoginPageCommand())
-//                .register("/login", HttpMethod.POST, new LoginUserCommand())
-//                .register("/registration", new ShowRegisterPageCommand())
-//                .register("/registration", HttpMethod.POST, new RegisterNewUserCommand())
-//                .register("/user/list", new ShowUserListCommand())
-//                .register("/participant/list", new ShowParticipantListCommand())
-//                .register("/participant/create", new ShowCreateParticipantPageCommand())
-//                .register("/participant/create", HttpMethod.POST, new CreateParticipantCommand())
                 .build();
     }
 

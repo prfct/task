@@ -18,7 +18,7 @@ public class Bouquet {
     private Long price;
     private List<BouquetFlower> flowerList;
     private List<BouquetTree> treeList;
-    private Set<BouquetAccessories> accessoriesList;
+    private List<BouquetAccessories> accessoriesList;
 
     public Long getId() {
         return id;
@@ -60,11 +60,11 @@ public class Bouquet {
         this.treeList = treeList;
     }
 
-    public Set<BouquetAccessories> getAccessoriesList() {
+    public List<BouquetAccessories> getAccessoriesList() {
         return accessoriesList;
     }
 
-    public void setAccessoriesList(Set<BouquetAccessories> accessoriesList) {
+    public void setAccessoriesList(List<BouquetAccessories> accessoriesList) {
         this.accessoriesList = accessoriesList;
     }
 }

@@ -31,8 +31,8 @@
                         <br>
                         <c:forEach items="${flowers}" var="flower">
                             <c:out value="${flower.id} - ${flower.name},colour:${flower.colour},
-                                freshness:${flower.freshness}, size: ${flower.size}"/>
-                            <input type="number" min="0" name="flowersQuantity[${flower.id}]">
+                                freshness:${flower.freshness}, steam size: ${flower.size}"/>
+                            <input type="number" min="1" name="flowersQuantity[${flower.id}]">
                             <br>
                         </c:forEach>
                         <c:if test="${not empty flowerIds_error}">
@@ -48,7 +48,7 @@
                         <br>
                         <c:forEach items="${trees}" var="tree">
                             <c:out value="${tree.id} - ${tree.name},size:${tree.size}"/>
-                            <input type="number" min="0" name="treesQuantity[${tree.id}]">
+                            <input type="number" min="1" name="treesQuantity[${tree.id}]">
                             <br>
                         </c:forEach>
                     </div>

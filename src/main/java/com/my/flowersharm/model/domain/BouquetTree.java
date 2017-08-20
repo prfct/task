@@ -4,6 +4,7 @@ public class BouquetTree {
     private Long id;
     private Bouquet bouquet;
     private Tree tree;
+    private Long quantity;
 
 
     public Long getId() {
@@ -30,4 +31,11 @@ public class BouquetTree {
         this.tree = tree;
     }
 
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
+    }
 }

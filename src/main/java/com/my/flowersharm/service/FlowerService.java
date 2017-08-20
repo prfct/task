@@ -10,4 +10,5 @@ public interface FlowerService {
 
     Flower createFlower(Flower flower);
 
+    Flower findFlowerById(Long id);
 }

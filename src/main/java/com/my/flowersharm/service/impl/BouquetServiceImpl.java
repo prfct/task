@@ -31,7 +31,32 @@ public class BouquetServiceImpl implements BouquetService {
 
     @Override
     public Bouquet createBouquet(Bouquet bouquet) {
-        return factory.getBouquetDao().create(new Bouquet());
+        Bouquet savedBouquet = factory.getBouquetDao().create(bouquet);
+        List<BouquetFlower> savedBouquetFlowerList = new ArrayList<>();
+        List<BouquetTree> savedBouquetTreeList = new ArrayList<>();
+        List<BouquetAccessories> savedBouquetAccessoriesList = new ArrayList<>();
+        for (BouquetFlower bouquetFlower : savedBouquet.getFlowerList()) {
+            BouquetFlower savedBouquetFlower = factory.getBouquetFlowerDao()
+                    .createBouquetFlower(savedBouquet, bouquetFlower);
+            savedBouquetFlowerList.add(savedBouquetFlower);
+        }
+        savedBouquet.setFlowerList(savedBouquetFlowerList);
+
+        for (BouquetTree bouquetTree : savedBouquet.getTreeList()) {
+            BouquetTree savedBouquetTree = factory.getBouquetTreeDao()
+                    .createBouquetTree(savedBouquet, bouquetTree);
+            savedBouquetTreeList.add(savedBouquetTree);
+        }
+        savedBouquet.setTreeList(savedBouquetTreeList);
+
+        for (BouquetAccessories bouquetAccessory : savedBouquet.getAccessoriesList()) {
+            BouquetAccessories savedBouquetAccessory = factory.getBouquetAccessoryDao()
+                    .createBouquetAccessory(savedBouquet, bouquetAccessory);
+            savedBouquetAccessoriesList.add(savedBouquetAccessory);
+        }
+        savedBouquet.setAccessoriesList(savedBouquetAccessoriesList);
+
+        return savedBouquet;
     }
 
     @Override

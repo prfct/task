@@ -3,7 +3,7 @@ CREATE TABLE IF NOT EXISTS flower (
   name      VARCHAR(64),
   colour    VARCHAR(64),
   freshness VARCHAR(64),
-  steam     VARCHAR(64),
+  steam     INT(11),
   PRIMARY KEY (flower_id)
 )
   CHARACTER SET utf8
@@ -53,6 +53,7 @@ CREATE TABLE IF NOT EXISTS bouquet_tree (
   CONSTRAINT fk_bouquet_bouquet_tree FOREIGN KEY (bouquet_id) REFERENCES bouquet (bouquet_id),
   tree_id         INT,
   CONSTRAINT fk_tree_bouquet_tree FOREIGN KEY (tree_id) REFERENCES tree (tree_id),
+  quantity        INT,
   PRIMARY KEY (bouquet_tree_id)
 )
   CHARACTER SET utf8

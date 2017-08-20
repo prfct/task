@@ -2,9 +2,7 @@ package com.my.flowersharm.dao.impl;
 
 import com.my.flowersharm.dao.AbstractDao;
 import com.my.flowersharm.dao.AccessoriesDao;
-import com.my.flowersharm.dao.commands.InsertAccessory;
-import com.my.flowersharm.dao.commands.SelectAccessoryByType;
-import com.my.flowersharm.dao.commands.SelectAllAccessories;
+import com.my.flowersharm.dao.commands.*;
 import com.my.flowersharm.model.domain.Accessories;
 import com.my.flowersharm.model.domain.AccessoriesType;
 
@@ -24,5 +22,10 @@ public class AccessoriesDaoImpl extends AbstractDao implements AccessoriesDao {
     @Override
     public List<Accessories> getAll() {
         return executeDataCommand(new SelectAllAccessories());
+    }
+
+    @Override
+    public Accessories findById(Long id) {
+        return executeDataCommand(new SelectAccessoryById(id));
     }
 }

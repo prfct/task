@@ -7,6 +7,10 @@ import java.util.List;
 
 public interface AccessoriesDao {
     Accessories createAccessories(Accessories accessories);
+
     Accessories findByType(AccessoriesType type);
+
     List<Accessories> getAll();
+
+    Accessories findById(Long id);
 }

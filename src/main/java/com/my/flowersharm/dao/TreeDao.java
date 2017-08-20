@@ -8,4 +8,6 @@ public interface TreeDao {
     Tree createTree(Tree tree);
 
     List<Tree> getAll();
+
+    Tree findTreeById(Long treeId);
 }

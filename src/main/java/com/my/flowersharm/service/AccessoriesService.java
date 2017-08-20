@@ -10,4 +10,6 @@ public interface AccessoriesService {
     List<Accessories> accessoriesList();
 
     Accessories createAccessories(Accessories accessories) throws ExistAccessoryException;
+
+    List<Accessories> findByIds(List<Long> ids);
 }

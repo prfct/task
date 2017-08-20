@@ -9,6 +9,7 @@ import com.my.flowersharm.service.exception.ExistAccessoryException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AccessoriesServiceImpl implements AccessoriesService {
@@ -48,5 +49,15 @@ public class AccessoriesServiceImpl implements AccessoriesService {
         LOGGER.info("Service.Accessories with id '{}', type '{}' successful created",
                 createdAccessories.getId(), createdAccessories.getType());
         return createdAccessories;
+    }
+
+    @Override
+    public List<Accessories> findByIds(List<Long> ids) {
+        List<Accessories> list = new ArrayList<>();
+        for (Long id : ids) {
+            list.add(daoFactory.getAccessoriesDao().findById(id));
+        }
+
+        return list;
     }
 }

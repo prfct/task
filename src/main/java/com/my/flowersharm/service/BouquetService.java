@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface BouquetService {
     List<Bouquet> bouquetList();
+
     Bouquet createBouquet(Bouquet bouquet);
 
     Bouquet findBouquetById(Long bouquetId);

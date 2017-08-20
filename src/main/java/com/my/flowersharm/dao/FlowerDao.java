@@ -10,4 +10,6 @@ public interface FlowerDao {
     List<Flower> findFlowersByBouquetId(Long id);
 
     List<Flower> getAll();
+
+    Flower findFlowerById(Long id);
 }

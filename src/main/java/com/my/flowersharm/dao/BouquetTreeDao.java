@@ -8,4 +8,5 @@ import java.util.List;
 public interface BouquetTreeDao {
     List<BouquetTree> findBouquetTreesByBouquet(Bouquet  bouquet);
 
+    BouquetTree createBouquetTree(Bouquet savedBouquet, BouquetTree bouquetTree);
 }

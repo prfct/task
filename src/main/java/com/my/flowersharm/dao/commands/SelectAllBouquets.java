@@ -25,7 +25,7 @@ public class SelectAllBouquets extends SelectQuery<List<Bouquet>> {
     @Override
     protected List<Bouquet> parseResultSet(ResultSet resultSet) throws SQLException {
         List<Bouquet> bouquets = new ArrayList<>();
-        if (resultSet.next()) {
+        while (resultSet.next()) {
             Bouquet bouquet = new Bouquet();
             bouquet.setId(resultSet.getLong("bouquet_id"));
             bouquet.setTitle(resultSet.getString("title"));

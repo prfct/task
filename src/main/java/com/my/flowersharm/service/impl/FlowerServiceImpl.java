@@ -4,6 +4,7 @@ import com.my.flowersharm.dao.DaoFactory;
 import com.my.flowersharm.model.domain.Flower;
 import com.my.flowersharm.service.FlowerService;
 import com.my.flowersharm.service.exception.FlowerListException;
+import com.sun.tools.javac.comp.Flow;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,6 +42,11 @@ public class FlowerServiceImpl implements FlowerService {
                 createdFlower.getId(), createdFlower.getName(), createdFlower.getColour(),
                 createdFlower.getFreshness(), createdFlower.getSize());
         return createdFlower;
+    }
+
+    @Override
+    public Flower findFlowerById(Long id) {
+        return daoFactory.getFlowerDao().findFlowerById(id);
     }
 
 }

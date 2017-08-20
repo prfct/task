@@ -4,6 +4,7 @@ import com.my.flowersharm.dao.AbstractDao;
 import com.my.flowersharm.dao.FlowerDao;
 import com.my.flowersharm.dao.commands.InsertFlower;
 import com.my.flowersharm.dao.commands.SelectAllFlowers;
+import com.my.flowersharm.dao.commands.SelectFlowerById;
 import com.my.flowersharm.dao.commands.SelectFlowersByBouquetId;
 import com.my.flowersharm.model.domain.Flower;
 
@@ -24,6 +25,11 @@ public class FlowerDaoImpl extends AbstractDao implements FlowerDao {
     @Override
     public List<Flower> getAll() {
         return executeDataCommand(new SelectAllFlowers());
+    }
+
+    @Override
+    public Flower findFlowerById(Long id) {
+        return executeDataCommand(new SelectFlowerById(id));
     }
 
 

@@ -2,6 +2,7 @@ package com.my.flowersharm.dao.impl;
 
 import com.my.flowersharm.dao.AbstractDao;
 import com.my.flowersharm.dao.BouquetFlowerDao;
+import com.my.flowersharm.dao.commands.InsertBouquetFlowerByBouquet;
 import com.my.flowersharm.dao.commands.SelectBouquetFlowersByBouquet;
 import com.my.flowersharm.model.domain.Bouquet;
 import com.my.flowersharm.model.domain.BouquetFlower;
@@ -12,5 +13,10 @@ public class BouquetFlowerDaoImpl extends AbstractDao implements BouquetFlowerDa
     @Override
     public List<BouquetFlower> findBouquetFlowersByBouquet(Bouquet bouquet) {
         return executeDataCommand(new SelectBouquetFlowersByBouquet(bouquet));
+    }
+
+    @Override
+    public BouquetFlower createBouquetFlower(Bouquet savedBouquet, BouquetFlower bouquetFlower) {
+        return executeDataCommand(new InsertBouquetFlowerByBouquet(savedBouquet, bouquetFlower));
     }
 }
