@@ -30,7 +30,7 @@ public class BouquetServiceImpl implements BouquetService {
     }
 
     @Override
-    public Bouquet createBouquet(Bouquet bouquet) {
+    public Bouquet  createBouquet(Bouquet bouquet) {
         Bouquet savedBouquet = factory.getBouquetDao().create(bouquet);
         List<BouquetFlower> savedBouquetFlowerList = new ArrayList<>();
         List<BouquetTree> savedBouquetTreeList = new ArrayList<>();
@@ -63,7 +63,6 @@ public class BouquetServiceImpl implements BouquetService {
     public Bouquet findBouquetById(Long bouquetId) {
         Bouquet bouquet = factory.getBouquetDao().findOne(bouquetId);
         List<BouquetFlower> flowers = factory.getBouquetFlowerDao().findBouquetFlowersByBouquet(bouquet);
-        flowers.sort((o1, o2) -> o2.getFlower().getFreshness().compareTo(o1.getFlower().getFreshness()));
         if (bouquet != null) {
             bouquet.setFlowerList(flowers);
             bouquet.setTreeList(factory.getBouquetTreeDao().findBouquetTreesByBouquet(bouquet));

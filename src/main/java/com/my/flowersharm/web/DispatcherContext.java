@@ -28,7 +28,7 @@ public class DispatcherContext {
                 .register("/bouquet/list", new ShowBouquetListCommand())
                 .register("/bouquet/create", new ShowCreateBouquetPageCommand())
                 .register("/bouquet/create", HttpMethod.POST, new CreateBouquetCommand())
-                .register("/bouquet/detail", HttpMethod.POST, new DetailBouquetCommand())
+                .register("/bouquet/detail", new DetailBouquetCommand())
                 .register("/bouquet/sort_fresh", HttpMethod.POST, new SortFlowerByFresh())
                 .register("/bouquet/diapason", HttpMethod.POST, new DiapasonFlowers())
                 .register("/flower/create", new ShowCreateFlowerPageCommand())

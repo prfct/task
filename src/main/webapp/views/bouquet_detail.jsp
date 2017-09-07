@@ -36,11 +36,6 @@
                               action="/app/bouquet/sort_fresh?bouId=${bouquet.id}">
                             <button class="btn btn-default btn-sm">SortByVery</button>
                         </form>
-                        <form method="post"
-                              action="/app/bouquet/detail?id=${bouquet.id}">
-                            <button class="btn btn-default btn-sm">SortByBad</button>
-                        </form>
-                        <br>
                         <form method="post" style="display: inline-block;"
                               action="/app/bouquet/diapason?id=${bouquet.id}">
                             Choose diapason flowers:

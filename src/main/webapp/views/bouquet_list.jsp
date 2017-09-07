@@ -18,16 +18,9 @@
                     <tbody>
                     <c:forEach items="${bouquets}" var="bouquet">
                         <tr>
-                            <td>${bouquet.id}</td>
+                            <td><a href="/app/bouquet/detail?id=${bouquet.id}">${bouquet.id}</a></td>
                             <td>${bouquet.title}</td>
                             <td>${bouquet.price}</td>
-                            <td>
-                                <form method="post" style="display: inline-block;"
-                                      action="/app/bouquet/detail?id=${bouquet.id}">
-                                    <button class="btn btn-default btn-sm">Detail</button>
-                                </form>
-                            </td>
-
                         </tr>
 
                     </c:forEach>
